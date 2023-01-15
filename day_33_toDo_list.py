@@ -4,8 +4,10 @@ toDoList = []
 
 def printList():
   print()
+  counter = 1
   for item in toDoList:
-    print(item)
+    print(f'{counter}: {item}')
+    counter += 1
   print()
 
 header = f'ToDo List Manager'
