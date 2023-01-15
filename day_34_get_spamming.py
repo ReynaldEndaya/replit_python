@@ -15,7 +15,7 @@ def sendEmail():
     print()
     for index in range(len(listOfEmail)):
         os.system("clear")
-        emailBody = f'Dear {listOfEmail[index]} It has come to our attention that you\'re missing out on the amazing Replit 100 days of code. We insist you do it right away. If you don\'t we will pass on your email address to every spammer we\'ve ever encountered and also sign you up to the My Little Pony newsletter, because that\'s neat. We might just do that anyway. Love and hugs, Ian Spammington III'
+        emailBody = f'Dear {listOfEmail[index]},\n\nIt has come to our attention that you\'re missing out on the amazing Replit 100 days of code. We insist you do it right away. If you don\'t we will pass on your email address to every spammer we\'ve ever encountered and also sign you up to the My Little Pony newsletter, because that\'s neat. We might just do that anyway.\n\nLove and hugs,\nIan Spammington III'
         print(emailBody)
         print()
         time.sleep(3)
