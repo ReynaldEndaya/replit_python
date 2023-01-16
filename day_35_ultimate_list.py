@@ -1,0 +1,75 @@
+import os,time
+
+toDoList = []
+
+def printList():
+  print()
+  counter = 1
+  for item in toDoList:
+    print(f'{counter}: {item}')
+    counter += 1
+  print()
+
+def editList():
+  print()
+  printList()
+  index = input('Enter task that you want to edit: ')
+  newTask = input('Enter name of new task: ')
+  toDoList[int(index) - 1] = newTask 
+  print()
+  print('Here\'s your new task list\n')
+  printList()    
+
+header = f'ToDo List Manager'
+
+while True:
+  
+  print(f'{header: >100}')
+  print()
+  action = input('''Do you want to view, add, or edit your to do list? 
+  
+1. View List
+2. Add List
+3. Edit List
+4. Remove Item
+
+Enter number of your option: ''')
+  
+  if action == '1':
+    print()
+    print('Here\'s your to do!')
+    printList()
+    time.sleep(2)
+    os.system("clear")
+  
+  elif action == '2':
+    print()
+    toDo = input('Input your to do: ')
+    toDoList.append(toDo)
+    print()
+    time.sleep(1)
+    os.system("clear")
+  
+  elif action == '3':
+    editList()
+    time.sleep(1)
+    os.system("clear")
+  
+  elif action == '4':
+    print()
+    print('Here\'s your current to do list')
+    printList()
+    toDo = input('Input item to remove: ')
+    if toDo in toDoList:
+      toDoList.remove(toDo)
+      print()
+    else:
+      print('Item is not in list')
+      printList()
+      time.sleep(1)
+      os.system("clear")
+  
+  else:
+    print('Invalid Option! Please select again')
+    continue
+    
