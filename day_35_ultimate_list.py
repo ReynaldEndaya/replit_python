@@ -99,4 +99,5 @@ Enter number of your option: ''')
     
   else:
     print('Invalid Option! Please select again')
+    clearDisplay(1)
     continue
