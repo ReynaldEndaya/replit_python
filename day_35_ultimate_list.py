@@ -17,8 +17,9 @@ def printList():
 def editList():
   print()
   printList()
-  index = input('Enter task that you want to edit: ')
-  newTask = input('Enter name of new task: ')
+  taskToRemove = input('Enter name of task that you want to edit: ')
+  newTask = input('\nEnter name of new task: ')
+  index = toDoList.index(taskToRemove)
   toDoList[int(index) - 1] = newTask 
   print()
   print('Here\'s your new task list\n')
@@ -48,7 +49,16 @@ def removeItem():
     print()
   else:
     print('Item is not in list')
-    printList()  
+    printList()
+
+def deleteList():
+  print()
+  confirm = input('Are you sure you want to delete the entire list? (y|n): ')
+  if confirm == 'y':
+    toDoList.clear()
+  else:
+    print('List is not deleted!')
+      
 
 while True:
   
@@ -61,6 +71,7 @@ while True:
 2. Add List
 3. Edit List
 4. Remove Item
+5. Delete List
 
 Enter number of your option: ''')
   
@@ -80,6 +91,10 @@ Enter number of your option: ''')
   
   elif action == '4':
     removeItem()
+    clearDisplay(1)
+    
+  elif action == '5':
+    deleteList()
     clearDisplay(1)
     
   else:
