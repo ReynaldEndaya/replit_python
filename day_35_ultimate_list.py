@@ -2,6 +2,10 @@ import os,time
 
 toDoList = []
 
+def clearDisplay(timeout):
+  time.sleep(timeout)
+  os.system("clear")
+
 def printList():
   print()
   counter = 1
@@ -20,10 +24,35 @@ def editList():
   print('Here\'s your new task list\n')
   printList()    
 
-header = f'ToDo List Manager'
+def addList():
+  print()
+  toDo = input('Input your to do: ')
+  if toDo not in toDoList:
+    toDoList.append(toDo)
+  else:
+    print()
+    print('Cannot add item as it is already in list!')
+  print()
+
+def removeItem():
+  print()
+  print('Here\'s your current to do list')
+  printList()
+  toDo = input('Input item to remove: ')
+  if toDo in toDoList:
+    confirm = input('Do you really want to remove this item? (y|n): ')
+    if confirm == 'y':
+      toDoList.remove(toDo)
+    else:
+      print('Item not removed!')
+    print()
+  else:
+    print('Item is not in list')
+    printList()  
 
 while True:
   
+  header = f'ToDo List Manager'
   print(f'{header: >100}')
   print()
   action = input('''Do you want to view, add, or edit your to do list? 
@@ -39,37 +68,20 @@ Enter number of your option: ''')
     print()
     print('Here\'s your to do!')
     printList()
-    time.sleep(2)
-    os.system("clear")
+    clearDisplay(2)
   
   elif action == '2':
-    print()
-    toDo = input('Input your to do: ')
-    toDoList.append(toDo)
-    print()
-    time.sleep(1)
-    os.system("clear")
+    addList()
+    clearDisplay(1.5)
   
   elif action == '3':
     editList()
-    time.sleep(1)
-    os.system("clear")
+    clearDisplay(1)
   
   elif action == '4':
-    print()
-    print('Here\'s your current to do list')
-    printList()
-    toDo = input('Input item to remove: ')
-    if toDo in toDoList:
-      toDoList.remove(toDo)
-      print()
-    else:
-      print('Item is not in list')
-      printList()
-      time.sleep(1)
-      os.system("clear")
-  
+    removeItem()
+    clearDisplay(1)
+    
   else:
     print('Invalid Option! Please select again')
     continue
-    
