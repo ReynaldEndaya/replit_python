@@ -20,7 +20,7 @@ def editList():
   taskToRemove = input('Enter name of task that you want to edit: ')
   newTask = input('\nEnter name of new task: ')
   index = toDoList.index(taskToRemove)
-  toDoList[int(index) - 1] = newTask 
+  toDoList[int(index)] = newTask 
   print()
   print('Here\'s your new task list\n')
   printList()    
